@@ -56,7 +56,7 @@ class UpdateDriverReferences extends Command
      */
     public function handle()
     {
-        $this->generateCities($yandexClient);
+        $this->generateCities($this->yandexClient);
 
         return true;
     }

@@ -19,6 +19,7 @@ class CitiesGenerator
 
     public function generateItems(YandexClientInterface $yandexClient)
     {
+        $yandexClient->init();
         $yandexData = $yandexClient->getDriversCardData();
         $cities = $this->getItemsByYandexData($yandexData);
         asort($cities);

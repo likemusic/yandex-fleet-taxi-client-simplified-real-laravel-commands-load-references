@@ -76,6 +76,7 @@ class UpdateCarReferences extends Command
     {
         $yandexClient = $this->yandexClient;
 
+        $yandexClient->init();
         $vehiclesCardData = $yandexClient->getVehiclesCardData();
 
         $this->generateColors($vehiclesCardData);

@@ -5,6 +5,7 @@ namespace Likemusic\Yandex\FleetTaxi\Client\Simplified\Real\Laravel\Commands\Pro
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Likemusic\Yandex\FleetTaxi\Client\Simplified\Real\Laravel\Commands\Console\Commands\UpdateCarReferences as UpdateCarReferencesCommand;
 use Likemusic\Yandex\FleetTaxi\Client\Simplified\Real\Laravel\Commands\Console\Commands\UpdateDriverReferences as UpdateDriverReferencesCommand;
+use Likemusic\Yandex\FleetTaxi\Client\Simplified\Real\Laravel\Commands\Console\Commands\UpdateAllReferences;
 
 class ServiceProvider extends BaseServiceProvider
 {
@@ -14,6 +15,7 @@ class ServiceProvider extends BaseServiceProvider
             $this->commands([
                 UpdateCarReferencesCommand::class,
                 UpdateDriverReferencesCommand::class,
+                UpdateAllReferences::class,
             ]);
         }
     }

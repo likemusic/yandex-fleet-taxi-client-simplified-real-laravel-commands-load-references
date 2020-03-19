@@ -2,9 +2,8 @@
 
 namespace Likemusic\Yandex\FleetTaxi\Client\Simplified\Real\Laravel\Commands\Console\Commands;
 
-use Likemusic\Yandex\FleetTaxi\Client\Simplified\Real\Laravel\Commands\Console\Commands\UpdateDriverReferences\CitiesGenerator;
 use Illuminate\Console\Command;
-use Likemusic\YandexFleetTaxiClient\Contracts\LanguageInterface;
+use Likemusic\Yandex\FleetTaxi\Client\Simplified\Real\Laravel\Commands\Console\Commands\UpdateDriverReferences\CitiesGenerator;
 use Likemusic\YandexFleetTaxiClientSimplified\Contracts\ClientInterface as YandexClientInterface;
 
 class UpdateDriverReferences extends Command
@@ -42,7 +41,8 @@ class UpdateDriverReferences extends Command
     public function __construct(
         CitiesGenerator $driverLicenseIssueCitiesGenerator,
         YandexClientInterface $yandexClient
-    ) {
+    )
+    {
         $this->driverLicenseIssueCitiesGenerator = $driverLicenseIssueCitiesGenerator;
         $this->yandexClient = $yandexClient;
 

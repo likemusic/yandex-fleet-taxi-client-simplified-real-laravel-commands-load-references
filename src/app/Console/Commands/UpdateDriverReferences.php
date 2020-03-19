@@ -4,8 +4,8 @@ namespace Likemusic\Yandex\FleetTaxi\Client\Simplified\Real\Laravel\Commands\Con
 
 use Likemusic\Yandex\FleetTaxi\Client\Simplified\Real\Laravel\Commands\Console\Commands\UpdateDriverReferences\CitiesGenerator;
 use Illuminate\Console\Command;
-use Likemusic\YandexFleetTaxiClient\Contracts\ClientInterface as YandexClientInterface;
 use Likemusic\YandexFleetTaxiClient\Contracts\LanguageInterface;
+use Likemusic\YandexFleetTaxiClientSimplified\Contracts\ClientInterface as YandexClientInterface;
 
 class UpdateDriverReferences extends Command
 {
@@ -34,41 +34,17 @@ class UpdateDriverReferences extends Command
     private $yandexClient;
 
     /**
-     * @var string
-     */
-    private $yandexLogin;
-
-    /**
-     * @var string
-     */
-    private $yandexPassword;
-
-    /**
-     * @var string
-     */
-    private $parkId;
-
-    /**
      * Create a new command instance.
      *
      * @param CitiesGenerator $driverLicenseIssueCitiesGenerator
      * @param YandexClientInterface $yandexClient
-     * @param string $yandexLogin
-     * @param string $yandexPassword
-     * @param string $parkId
      */
     public function __construct(
         CitiesGenerator $driverLicenseIssueCitiesGenerator,
-        YandexClientInterface $yandexClient,
-        string $yandexLogin,
-        string $yandexPassword,
-        string $parkId
+        YandexClientInterface $yandexClient
     ) {
         $this->driverLicenseIssueCitiesGenerator = $driverLicenseIssueCitiesGenerator;
         $this->yandexClient = $yandexClient;
-        $this->yandexLogin = $yandexLogin;
-        $this->yandexPassword = $yandexPassword;
-        $this->parkId = $parkId;
 
         parent::__construct();
     }
@@ -80,24 +56,13 @@ class UpdateDriverReferences extends Command
      */
     public function handle()
     {
-        $yandexClient = $this->yandexClient;
-        $parkId = $this->parkId;//todo: проверить нужен ли действительно parkId, или можно получить данные и без него
-
-        $this->initYandexClient($yandexClient, $this->yandexLogin, $this->yandexPassword);
-        $this->generateCities($yandexClient, $parkId);
+        $this->generateCities($yandexClient);
 
         return true;
     }
 
-    private function initYandexClient(YandexClientInterface $yandexClient, $login, $password)
+    private function generateCities(YandexClientInterface $yandexClient)
     {
-        $yandexClient->login($login, $password);
-        $yandexClient->getDashboardPageData();
-        $yandexClient->changeLanguage(LanguageInterface::RUSSIAN);
-    }
-
-    private function generateCities(YandexClientInterface $yandexClient, string $parkId)
-    {
-        return $this->driverLicenseIssueCitiesGenerator->generateItems($yandexClient, $parkId);
+        return $this->driverLicenseIssueCitiesGenerator->generateItems($yandexClient);
     }
 }

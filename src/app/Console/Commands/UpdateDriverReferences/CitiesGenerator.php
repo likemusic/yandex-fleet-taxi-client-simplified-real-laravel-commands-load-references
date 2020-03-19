@@ -3,7 +3,7 @@
 namespace Likemusic\Yandex\FleetTaxi\Client\Simplified\Real\Laravel\Commands\Console\Commands\UpdateDriverReferences;
 
 use Likemusic\Yandex\FleetTaxi\Client\Simplified\Real\Laravel\Commands\Helpers\FilenamesProvider;
-use Likemusic\YandexFleetTaxiClient\Contracts\ClientInterface as YandexClientInterface;
+use Likemusic\YandexFleetTaxiClientSimplified\Contracts\ClientInterface as YandexClientInterface;
 
 class CitiesGenerator
 {
@@ -17,9 +17,9 @@ class CitiesGenerator
         $this->filenamesProvider = $filenamesProvider;
     }
 
-    public function generateItems(YandexClientInterface $yandexClient, string $parkId)
+    public function generateItems(YandexClientInterface $yandexClient)
     {
-        $yandexData = $yandexClient->getDriversCardData($parkId);
+        $yandexData = $yandexClient->getDriversCardData();
         $cities = $this->getItemsByYandexData($yandexData);
         asort($cities);
 
@@ -53,10 +53,5 @@ class CitiesGenerator
     private function getFullFilename()
     {
         return $this->filenamesProvider->getDriverLicenseIssueCountriesFullFilename();
-    }
-
-    private function getNameRu(array $country)
-    {
-        return $country['name_ru'];
     }
 }

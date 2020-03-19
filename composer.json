@@ -14,7 +14,8 @@
   "require": {
     "illuminate/support": "^5.4|^6.0|^7.0",
     "illuminate/console": "*",
-    "likemusic/yandex-fleet-taxi-client-simplified-real-laravel": "dev-master"
+    "likemusic/yandex-fleet-taxi-client-simplified-real-laravel": "dev-master",
+    "ext-json": "*"
   },
   "autoload": {
     "psr-4": {

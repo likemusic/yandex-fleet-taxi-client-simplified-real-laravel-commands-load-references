@@ -3,7 +3,7 @@
 namespace Likemusic\Yandex\FleetTaxi\Client\Simplified\Real\Laravel\Commands\Console\Commands\UpdateCarReferences;
 
 use Likemusic\Yandex\FleetTaxi\Client\Simplified\Real\Laravel\Commands\Helpers\FilenamesProvider;
-use Likemusic\YandexFleetTaxiClient\Contracts\ClientInterface as YandexClientInterface;
+use Likemusic\YandexFleetTaxiClientSimplified\Contracts\ClientInterface as YandexClientInterface;
 
 class BrandModelsGenerator
 {

@@ -1,0 +1,61 @@
+{
+  "name": "likemusic/yandex-fleet-taxi-client-simplified-real-laravel-commands-load-references",
+  "description": "This package provides commands to download Yandex Fleet Taxi Driver's and Car's references.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Valerij Ivashchenko",
+      "email": "likemusicdev@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "illuminate/support": "^5.4|^6.0|^7.0",
+    "illuminate/console": "*",
+    "likemusic/yandex-fleet-taxi-client-simplified-real-laravel": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Likemusic\\Yandex\\FleetTaxi\\Client\\Simplified\\Real\\Laravel\\Commands\\": "src/app/"
+    }
+  },
+  "keywords": [
+    "laravel",
+    "yandex",
+    "taxi",
+    "fleet",
+    "simplified",
+    "command"
+  ],
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Likemusic\\Yandex\\FleetTaxi\\Client\\Simplified\\Real\\Laravel\\Commands\\Providers\\ServiceProvider"
+      ]
+    }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:likemusic/yandex-fleet-taxi-client-simplified-real-laravel.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:likemusic/yandex-fleet-taxi-client-simplified-real.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:likemusic/yandex-fleet-taxi-client-simplified-base.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:likemusic/yandex-fleet-taxi-client-contracts.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:likemusic/yandex-fleet-taxi-client.git"
+    }
+  ]
+}
